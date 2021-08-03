@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="user_information" resource="default" engine="innodb"
+           comment="User Management">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="User ID"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="200"
+                comment="User Name"/>
+        <column xsi:type="date" name="dob" nullable="true"  comment="User Dob"/>
+        <column xsi:type="varchar" name="phone" nullable="true" length="11"
+                comment="User Number"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="30"
+                comment="User Email"/>
+        <column xsi:type="varchar" name="address" nullable="true" length="200"
+                comment="User Address"/>
+
+        <column xsi:type="int" name="dropdown" nullable="true"   padding="10"
+                comment="DropDown Vale"/>
+
+        <column xsi:type="varchar" name="image" nullable="true" length="900"
+                comment="User image"/>
+
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+    </table>
+</schema>
+
