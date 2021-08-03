@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+
+    <table name="codilar_push_notification_template" resource="default" engine="innodb" comment="Codilar Push Notification">
+        <column xsi:type="int" name="template_id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+
+        <column xsi:type="varchar" name="title" comment="title" length="500"/>
+
+        <column xsi:type="varchar" name="logo" nullable="true" comment="Logo URL" length="1024"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="template_id"/>
+        </constraint>
+
+    </table>
+
+
+
+</schema>

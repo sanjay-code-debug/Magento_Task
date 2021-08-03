@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Codilar_PushNotification::menu" title="Test" module="Magento_Backend" sortOrder="10" resource="Codilar_PushNotification::menu" />
+
+       <add id="Codilar_PushNotification::pushnotify_template" title="All User" translate="title" module="Codilar_PushNotification" sortOrder="100" parent="Codilar_PushNotification::menu" action="pushnotify/template/view" resource="Codilar_PushNotification::pushnotify_template"/>
+    </menu>
+</config>
