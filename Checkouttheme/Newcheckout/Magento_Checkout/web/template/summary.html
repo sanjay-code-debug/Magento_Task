@@ -1,0 +1,47 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<style>
+    .opc-block-order-total{
+        width: 100%;
+    }
+    .opc-block-order-col-2{
+        text-align: right;
+    }
+</style>
+<div class="opc-block-order-total">
+    <h2>order total</h2>
+   <table class="opc-block-order-table">
+       <tr>
+           <td>Sub Total:</td>
+           <td class="opc-block-order-col-2">SGD ABC.00</td>
+       </tr>
+       <tr>
+        <td>Shipping & Handling:</td>
+        <td class="opc-block-order-col-2">SGD ABC.00</td>
+    </tr>
+    <tr>
+        <td>Discount:</td>
+        <td class="opc-block-order-col-2">SGD ABC.00</td>
+    </tr>
+    <tr>
+        <td>GST:</td>
+        <td class="opc-block-order-col-2">SGD ABC.00</td>
+    </tr>
+    <tr>
+        <th>Total</th>
+        <th class="opc-block-order-col-2">SGD ABC.00</th>
+    </tr>
+   </table>
+ 
+
+</div>
+<div class="opc-block-summary" data-bind="blockLoader: isLoading">
+    <span data-bind="i18n: 'Order Summary'" class="title"></span>
+    <!-- ko foreach: elems() -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+</div>
