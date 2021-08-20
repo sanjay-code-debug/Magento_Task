@@ -55,7 +55,7 @@
          <label> Enter Image2 </label>
          <input type="file" id="demo2" value="">
          
-          
+          <input type="submit"  id="click-me" value="Submit">
    
    </form>
 
