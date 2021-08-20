@@ -1,0 +1,130 @@
+
+
+        There is an  Existing Form and When you enter the Data                                      
+               and On Submit Need To Open Pop-Up(Dialog) 
+               
+     ==========================================================================================          
+
+
+<!-- Form Pop up -->
+     <div id="popup-modal" style="display:none;">
+         <span><?= $block->escapeHtml(__('Business Name')) ?></span>
+          <p id="bn"> </p>
+
+         <span><?= $block->escapeHtml(__('Business Registration Number')) ?></span>
+         <p id="regd"> </p>
+
+         <span><?php echo __('Email') ?></span>
+         <p id="em"></p>
+
+         <span><?php echo __('Country') ?></span>
+         <p><?php echo $countryList?></p>
+
+         <span><?= $block->escapeHtml(__('VAT/ GST/ Sales Tax Number:')) ?></span>
+          <p id="gstn"> </p>
+
+         <span class="note-heading">Please upload copy of your Business Registration</span>
+            <img src="#" id="demo"  width="200" height="100"/>
+          <br>
+         <span class="input_label">Upload Tax Certificate </span>
+         <br>
+         <img src="#" id="demo2"  width="200" height="100"/>
+     </div>
+----------------------------------------------------------------------------------------------
+
+
+   <form> 
+          
+          <label>Enter Name</label>
+          <input type="text" id="business_name"  value="" required>   
+          
+         
+         <label> Enter Email </label>
+         <input type="email" id="email" value="">
+         
+         <label> Enter RegdNo </label>
+         <input type="text" id="abn" value="">
+         
+         
+         <label> Enter GST No </label>
+         <input type="text" id="gst" value="">
+         
+         <label> Enter Image</label>
+         <input type="file" id="demo" value="">
+             
+         <label> Enter Image2 </label>
+         <input type="file" id="demo2" value="">
+         
+          
+   
+   </form>
+
+
+
+
+
+-------------------------------------------------------------------------------------------------
+   <script>
+         require(
+             [
+                 'jquery',
+                 'Magento_Ui/js/modal/modal'
+             ],
+             function(
+                 $,
+                 modal
+             ) {
+                 var options = {
+                     type: 'popup',
+                     responsive: true,
+                     innerScroll: true,
+                     title: 'Data You Entered',
+                     buttons: [{
+                         text: $.mage.__('Continue'),
+                         class: '',
+                         click: function () {
+                             this.closeModal();
+                         }
+                     }]
+                 };
+
+                 var popup = modal(options, $('#popup-modal'));
+                 $("#click-me").on('click',function(e){
+                     e.preventDefault();
+                     $('#bn').text($('#business_name').val());
+                     $('#em').text($('#email').val());
+                     $('#regd').text($('#abn').val());
+                     $('#gstn').text($('#gst').val());
+
+                     $("#test").change(function () {
+                         if (this.files && this.files[0]) {
+                             var reader = new FileReader();
+                             reader.onload = function (e) {
+                                 $('#demo').attr('src', e.target.result);
+                             }
+                             reader.readAsDataURL(this.files[0]);
+                         }
+                     });
+
+                     $("#tax").change(function () {
+                         if (this.files && this.files[0]) {
+                             var reader = new FileReader();
+                             reader.onload = function (e) {
+                                 $('#demo2').attr('src', e.target.result);
+                             }
+                             reader.readAsDataURL(this.files[0]);
+                         }
+                     });
+
+                     // var myFile = $('#test').prop('files')[0];    //select the file type
+                     // $('#demo').prop('files', myFile );        // move the file the id if img tag
+
+                     $("#popup-modal").modal("openModal");
+
+                 });
+             }
+         );
+     </script>
+     
+     
+
