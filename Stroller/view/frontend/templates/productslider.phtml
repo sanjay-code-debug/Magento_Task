@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- <script type="text/javascript"  src="https://code.jquery.com/jquery-2.2.4.min.js"></script> -->
+
+<style>
+    #stroller-wrapper{
+        background: #000;
+        color: #fff;
+        max-width: 1920px;
+        width: 100%;
+        margin: 0 auto;
+        height:  50px;
+        line-height: 50px;
+        overflow: hidden;
+    }
+    #stroller-wrapper .owl-item {
+        text-align: center;
+    }
+    #stroller-wrapper .item{
+        font-weight: bold;
+        color: #fff;
+        display: inline-block;
+    }
+</style>
+
+<section id="stroller-wrapper">
+    <div class="owl-carousel owl-theme">
+        <?php
+        $curr = $block->getCurrentCurrencyCode();
+        foreach($block->getSliderProducts() as $k=>$v) { ?>
+            <div class="item">
+                <?php $product = $block->getProductBySku($v['product_sku']); ?>
+                <p> <?php echo $product->getName(); ?>
+                    <span><?php echo $block->getFormatedPrice($v['min_price'],$curr).'-';
+                        echo $block->getFormatedPrice($v['max_price'],$curr); ?>
+                </span>
+                </p>
+            </div>
+        <?php } ?>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function() {
+        $('#stroller-wrapper .owl-carousel').owlCarousel({
+            loop: true,
+            dots: false,
+            nav: false,
+            items: 4,
+            margin: 10,
+            center: false,
+            autoplay: true,
+            autoplaySpeed: 10000,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                767: {
+                    items: 2
+                },
+                1023: {
+                    items: 3
+                },
+                1260: {
+                    items: 4
+                }
+            }
+        })
+    })
+</script>
+<script  type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>

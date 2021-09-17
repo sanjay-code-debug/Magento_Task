@@ -1,0 +1,12 @@
+type Query {
+    stroller: [Stroller] @doc(description:"Stroller Data")
+    @resolver(class: "Codilar\\Stroller\\Model\\Resolver\\Stroller")
+}
+
+type Stroller @doc(description:"Stroller  Data.")
+{
+    product_sku_name:String
+    min_product_price:String
+    max_product_price:String
+}
+

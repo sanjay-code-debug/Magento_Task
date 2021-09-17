@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="codilar" translate="label" sortOrder="100">
+            <label>Codilar</label>
+        </tab>
+
+        <section id="feedback" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>General</label>
+            <tab>codilar</tab>
+            <resource>Codilar_Stroller::codilar</resource>
+            <!-- Home page product Stroller Configuration-->
+            <group id="home" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Homepage Stroller Products</label>
+                <field id="products" translate="label" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Products</label>
+                    <frontend_model>Codilar\Stroller\Block\Adminhtml\Products</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>
