@@ -1,0 +1,9 @@
+type Query {
+    productImage : [Product] @doc(description:"Getting Image Value")
+    @resolver(class: "Codilar\\Simple\\Model\\Resolver\\GetImage")
+}
+
+type Product @doc(description:"Get Product Image")
+{
+    product_image : String
+}
