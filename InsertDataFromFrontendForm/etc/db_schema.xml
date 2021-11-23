@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+
+    <table name="Form_Data" resource="default" engine="innodb"
+           comment=" Information Store">
+
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="ID"/>
+
+        <column xsi:type="varchar" name="name" nullable="false" length="200"
+                comment="Name"/>
+
+        <column xsi:type="varchar" name="email" nullable="false" length="30"
+                comment="Email"/>
+
+        <column xsi:type="varchar" name="address" nullable="false" length="200"
+                comment="Address"/>
+
+        <column xsi:type="varchar" name="image" nullable="false" length="500"
+                comment="Image"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
+
