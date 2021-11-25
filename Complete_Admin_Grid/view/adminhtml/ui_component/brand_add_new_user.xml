@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">brand_add_new_user.brand_form_data_source</item>
+        </item>
+        <item name="ajaxSave" xsi:type="boolean">false</item>
+        <item name="label" xsi:type="string" translate="true">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <settings>
+        <buttons>
+            <button name="back" class="Codilar\Demo\Block\Display\BackButton"/>
+            <button name="reset" class="Codilar\Demo\Block\Display\ResetButton"/>
+            <button name="save" class="Codilar\Demo\Block\Display\SaveButton"/>
+            <button name="save_and_continue" class="Codilar\Demo\Block\Display\SaveAndContinueButton"/>
+        </buttons>
+        <namespace>brand_add_new_user</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>brand_add_new_user.brand_form_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="brand_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="brand/info/save"/>
+        </settings>
+        <dataProvider class="Codilar\Demo\Model\DataProvider\Brand\InfoProvider" name="brand_form_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label/>
+        </settings>
+
+
+        <field name="name" sortOrder="0" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">name</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <label translate="true">Name</label>
+                <dataType>text</dataType>
+                <visible>true</visible>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+
+        <field name="email" sortOrder="1" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-email" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Email</label>
+                <visible>true</visible>
+                <dataScope>email</dataScope>
+            </settings>
+        </field>
+
+        <field name="dob" sortOrder="2" formElement="date">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>date</dataType>
+                <label translate="true">Dob</label>
+                <visible>true</visible>
+                <dataScope>dob</dataScope>
+            </settings>
+        </field>
+
+        <field name="phone" sortOrder="3" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>int</dataType>
+                <label translate="true">Phone Number</label>
+                <visible>true</visible>
+                <dataScope>phone</dataScope>
+            </settings>
+        </field>
+
+        <field name="address" sortOrder="4" formElement="textarea">
+            <settings>
+                <validation>
+                    <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Address</label>
+                <visible>true</visible>
+                <dataScope>address</dataScope>
+            </settings>
+        </field>
+
+        <field name="image" sortOrder="40" formElement="imageUploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">image</item>
+                </item>
+            </argument>
+            <settings>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <dataType>string</dataType>
+                <label translate="true">Demo Image</label>
+                <visible>true</visible>
+                <required>false</required>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <required>false</required>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="brand/info/upload"/>
+                        </uploaderConfig>
+                        <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <initialMediaGalleryOpenSubpath>catalog/category</initialMediaGalleryOpenSubpath>
+                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+
+<!--        <field name="image">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="dataType" xsi:type="string">string</item>-->
+<!--                    <item name="source" xsi:type="string">image</item>-->
+<!--                    <item name="label" xsi:type="string" translate="true">Upload Image</item>-->
+<!--                    <item name="visible" xsi:type="boolean">true</item>-->
+<!--                    <item name="formElement" xsi:type="string">imageUploader</item>-->
+<!--                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/image</item>-->
+<!--                    <item name="previewTmpl" xsi:type="string">Codilar_Demo/image-preview</item>-->
+<!--                    <item name="validation" xsi:type="array">-->
+<!--                        <item name="required-entry" xsi:type="boolean">true</item>-->
+<!--                    </item>-->
+<!--                    <item name="sortOrder" xsi:type="number">40</item>-->
+<!--                    <item name="uploaderConfig" xsi:type="array">-->
+<!--                        <item name="url" xsi:type="url" path="brand/info/upload"/>-->
+<!--                    </item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </field>-->
+
+    </fieldset>
+</form>

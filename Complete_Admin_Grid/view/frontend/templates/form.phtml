@@ -1,0 +1,43 @@
+<?php
+use Codilar\Demo\Block\SaveUrl;
+/**
+ * @var $block SaveUrl
+ */
+?>
+
+<form action="<?= $block->getPostUrl() ?>" method="POST" enctype="multipart/form-data">
+
+    <fieldset>
+        <div>
+            <label for="name"><?= __("Name :") ?></label>
+            <input type="text" name="name"/>
+        </div>
+
+        <div>
+            <label for="dob"><?= __("Date of Birth :") ?></label>
+            <input type="date" name="dob"/>
+        </div>
+
+        <div>
+            <label for="dob"><?= __("Phone :") ?></label>
+            <input type="number" name="phone"/>
+        </div>
+
+        <div>
+            <label for="email"><?= __("Email : ") ?></label>
+            <input type="email" name="email"/>
+        </div>
+
+        <div>
+            <label for="address"><?= __("Address : ") ?></label>
+            <input type="text" name="address"/>
+        </div>
+
+        <div>
+            <label for="image"><?= __("Image :") ?></label>
+            <input type="file" name="image"/>
+        </div>
+        <input type="submit" name="submit" value="<?= __("Submit Data ") ?>" />
+    </fieldset>
+
+</form>

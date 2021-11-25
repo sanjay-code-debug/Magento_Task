@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Codilar_Demo::brand" title="Demo" translate="title"
+             module="Codilar_Demo" sortOrder="75" resource="Codilar_Demo::brand"/>
+        <add id="Codilar_Demo::brand_list" title="All User " translate="title"
+             module="Codilar_Demo" sortOrder="10" parent="Codilar_Demo::brand"
+             action="brand/info/index" resource="Codilar_Demo::brand_list"/>
+    </menu>
+</config>
