@@ -6,6 +6,13 @@ all magento task
 ## Some Task Concept in Magento
 -------------------------------------
 
+concept - Override of Magento File
+------------------------------------
+Over the Model File 
+--------------------
+
+
+
 concept-1
 ----------
  - There is Existing Table in Database. How Can We Fetch All The Table Data in Magento2.
