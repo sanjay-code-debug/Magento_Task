@@ -30,5 +30,19 @@ coccept-3
 ---------
     -
     
+Magento Code Optimization Principle
+===================================
+- Removal of unused or unnecessary code processes.
+
+- To optimize Magento performance, JavaScript and CSS files need to be compressed and aggregated.
+
+- Conformance of all site images to optimal web image sizes.
+
+
+
+
+
+    
+    
     
     
