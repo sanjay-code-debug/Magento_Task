@@ -40,6 +40,12 @@ Magento Code Optimization Principle
 
 
 
+Setup - Mazaplaza  - SMTP
+=========================
+- composer require mageplaza/module-smtp
+- 
+
+
 
 Magento Syllabus All Concept 
 ============================
